@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | Success</title>
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/quiz.css') }}">
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container">
+        <div class="quiz-content" style='flex-direction: column;'>
+            {% if user == 'quiz_creator' %}
+                <h1 style='margin-right:15px;color: #096969;'>Your quiz has been created successfully</h1>
+            {% elif user == 'quiz_player' %}
+                <h1 style='margin-right:15px;color: #096969;'>Your quiz has been successfully submitted</h1>
+            {% endif %}
+            <a href="/profile/{{ user }}">
+                Go to profile page
+            </a>
+
+            <div class="success-container">
+                <div class="success-content">
+                    <div class="success">✓</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- End of main block -->
+     <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <h5>Contact: <small><a href="mailto:2k19cse045@kiot.ac.in">Click here to email</a></small></h5>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+</html>

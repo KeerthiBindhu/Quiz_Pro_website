@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | Quiz</title>
+    
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/quiz.css') }}">
+    <!-- script -->
+    <script src="{{ url_for('static', filename = 'js/add_qs.js') }}"></script>
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container">
+        <div class="quiz-content">
+            <!--<p>{{QId}}</p>-->
+            <form id="quizForm" action="/{{ user }}/submit_quiz/{{ QId }}" method="POST">
+                <div id="questionsContainer">
+                    <div class="question">
+                        <h3>Question 1</h3>
+                        <input class="ques_input" type="text" name="questions" placeholder="Enter question text" required>
+                        <!-- <label>Options:</label> -->
+                        <input class="opt_input" type="text" name="questions[0][options][0]" placeholder="Option 1" required>
+                        <input class="opt_input" type="text" name="questions[0][options][1]" placeholder="Option 2" required>
+                        <input class="opt_input" type="text" name="questions[0][options][2]" placeholder="Option 3" required>
+                        <input class="opt_input" type="text" name="questions[0][options][3]" placeholder="Option 4" required>
+                        <input class='ans_input' type="text" name="questions[0][answer]" placeholder="Enter answer option as [1,2,3,4]" required>
+                    </div>
+                </div>
+                <button class="add-qs-btn" type="button" onclick="addQuestion()">Add Question</button>
+                <button class="sub-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- End of main block -->
+     <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <h5>Contact: <small><a href="mailto:2k19cse045@kiot.ac.in">Click here to email</a></small></h5>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+</html>

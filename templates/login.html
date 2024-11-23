@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | User LogIn</title>
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/auth.css') }}">
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container">
+        <div class="content">
+            <h1 style='color:red;'>{{msg}}</h1>
+            <h5>Join the Fun! Create Your Account Today.</h5>
+            <small>We respect your privacy and never share your information without consent.</small>
+            <form action="/login/{{ user }}" method="post">
+                <label for="username">Username</label>
+                <input type="text" name="username" required placeholder="Enter your username">
+                <label for="password">Password</label>
+                <input type="password" name="password" required placeholder="Enter the password">
+                <button type="submit" class="sub-btn">Submit</button>
+                <p>Don't have an account? <a href="/signup/{{ user }}">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- End of main block -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | User SignUp</title>
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/auth.css') }}">
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container signup">
+        <div class="content">
+            <h3>Creata an account</h3>
+            <form action="/signup/{{ user }}" method="post">
+                <h1 style='color:red;'>{{msg}}</h1>
+                <label for="username">Username</label>
+                <input type="text" name="username" required placeholder="Enter your username">
+                <label for="mobilenumber">Mobile number</label>
+                <input type="text" name="mobilenumber" required placeholder="Enter your mobile number">
+                <label for="email">Username</label>
+                <input type="email" name="email" required placeholder="Enter your email address">
+                <label for="password">Password</label>
+                <input type="password" name="password" required placeholder="Enter the password">
+                <button type="submit" class="sub-btn">Submit</button>
+                <p>Already have an account? <a href="/login/{{ user }}">Log in</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- End of main block -->
+</body>
+</html>
