@@ -91,7 +91,7 @@ nav{
     z-index: 1;
 }
 .profie-content p{
-    font-size: 11px;
+    font-size: 13px;
 }
 .show{
     display: flex;
@@ -102,6 +102,12 @@ nav{
     background: var(--color-light);
     opacity: 0.7;
     margin: 5px 0;
+}
+.profile-info i{
+     font-size: 1.9rem;
+}
+.profile-info a{
+    font-size: 0.9rem;
 }
 /* end of nav css */
 body{
@@ -147,4 +153,13 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+/* media query */
+@media screen and (max-width:631px) {
+    .nav-container a{
+        font-size: 15px;
+    }
+    .nav-container img{
+        height: 40px;margin-right: 5px;
+    }
 }

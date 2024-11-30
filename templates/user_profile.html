@@ -30,8 +30,10 @@
                 <i class="uil uil-user"></i>
             </button>
             <div class="profie-content" id="profileDropdown">
-                <div>
+                <div class="profile-info">
+                    <i class="uil uil-user-circle"></i>
                     <p>Email : {{ account['email'] }}</p>
+                    <a href="/update/{{ user }}/{{ account['id'] }}">Update Profile</a>
                 </div>
                 <div class='separator'></div>
                 <div>

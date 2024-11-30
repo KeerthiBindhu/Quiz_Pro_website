@@ -132,7 +132,9 @@
     .quiz_addition_info{
         width: 87%;
     }
-    .quiz_addition{
+    .quiz_addition,
+    .quiz_addition form{
         width: 97%;
     }
+
 }

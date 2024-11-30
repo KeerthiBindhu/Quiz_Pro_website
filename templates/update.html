@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz_Pro | User SignUp</title>
+    <title>Quiz_Pro | User Update</title>
     <!-- icon -->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
 
@@ -26,15 +26,15 @@
     <!-- Main block -->
     <div class="container signup">
         <div class="content">
-            <h3>Creata an account</h3>
-            <form action="/signup/{{ user }}" method="post">
-                <h1 style='color:red;'>{{msg}}</h1>
+            <h3>Update your account</h3>
+            <form action="/update/{{ user }}/{{ account['id'] }}" method="post">
+                <h1 style='color:red;'>{{ msg }}</h1>
                 <label for="username">Username</label>
                 <input type="text" name="username" required placeholder="Enter your username">
                 <label for="mobilenumber">Mobile number</label>
                 <input type="text" name="mobilenumber" required placeholder="Enter your mobile number">
                 <label for="email">Email</label>
-                <input type="email" name="email" required placeholder="Enter your email address">
+                <input type="email" name="email" readonly placeholder="{{ account['email'] }}" value ="{{ account['email'] }}" >
                 <label for="password">Password</label>
                 <input type="password" name="password" required placeholder="Enter the password">
                 <button type="submit" class="sub-btn">Submit</button>

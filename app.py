@@ -223,7 +223,62 @@ def signup(user):
  
  
 # Route to update page
-
+@app.route('/update/<user>/<int:user_id>', methods=['GET', 'POST'])
+def update(user, user_id):
+    msg = ''
+    print(type(user))
+    if 'QPloggedin' in session or 'QCloggedin' in session:
+        if user == 'quiz_creator':
+            user_acc = Quiz_creator.query.filter_by( id = user_id).first()
+        elif user == 'quiz_player':
+            user_acc = Quiz_player.query.filter_by( id = user_id).first()
+        if request.method == 'POST' and 'username' in request.form and \
+            'mobilenumber'in request.form and 'email' in request.form and \
+           'password' in request.form :
+            username = request.form['username']
+            mobilenumber = request.form['mobilenumber']
+            password = request.form['password']
+            # print(user)
+            
+            if not re.match(r'[A-Za-z0-9]+', username):
+                msg = 'Name must contain only characters and numbers !'
+            
+            else:
+                if user == 'quiz_creator':
+                
+                    account = Quiz_creator.query.filter_by(id = user_id).first()
+                    if account:
+                        account.id = user_id
+                        account.user_name = username
+                        account.mobile_number = mobilenumber
+                        account.password = password
+                        db.session.commit()
+                        # msg = 'You have successfully created account !'
+                    # return render_template('user_profile.html', user = user, account = account)
+                        return redirect(url_for('profile', user = user))
+                    else: 
+                        msg = "Account doesn't exists !"
+                        
+                elif user == 'quiz_player':
+                    
+                    account = Quiz_player.query.filter_by(id = user_id).first()
+                    if account:
+                        account.id = user_id
+                        account.player_name = username
+                        account.mobile_number = mobilenumber
+                        account.password = password
+                        db.session.commit()
+                        # msg = 'You have successfully created account !'
+                    # return render_template('player_profile.html', user = user,account = account)
+                        return redirect(url_for('profile', user = user))
+                    else: 
+                        msg = "Account doesn't exists !"
+                # return redirect(url_for('profile', user = user))
+        elif request.method == 'POST': 
+            msg = 'Please fill out the form !'
+        return render_template('update.html', msg=msg, user = user, account = user_acc)
+    return redirect(url_for('login', user = user))
+ 
 # Route to logout   ###HAS TO CHECK###
 @app.route('/logout/<user>/<int:user_id>')
 # @login_required  # Ensure user is logged in
