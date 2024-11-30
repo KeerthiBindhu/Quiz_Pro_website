@@ -319,7 +319,10 @@ def profile(user):
         account = Quiz_player.query.filter_by(id = qpid).first()
         
         # qp_data to hold both Quiz_category_name and Quiz_result data
-        qp_data = db.session.query(Quiz_category_name, Quiz_result).join(Quiz_category_name).all()
+        qp_data = db.session.query(Quiz_category_name, Quiz_result).join(
+                                    Quiz_result, 
+                                    and_(Quiz_category_name.id == Quiz_result.QcnId, Quiz_result.QPId == qpid)
+                                    ).all()
         total_score = Quiz_ques_opts_ans.query.filter_by()
         return render_template('player_profile.html', user = user, account = account, qc_data = qc_data, qp_data = qp_data)
  
