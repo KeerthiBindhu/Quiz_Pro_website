@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | Home</title>
+
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/home.css') }}">
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container">
+        <div class="content">
+            <div class="left-container">
+                <div class="left-content">
+                    <h2>Welcome to QUIZ_PRO</h2>
+                    <p> We're thrilled to have you here. Dive into our quiz_pro, 
+                        create your own quiz and let the participants play the quiz.</p>
+                    
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="right-content">
+                    <div class="choose">
+                        <h3>Choose your role to personalize your experience and make the most of our platform!</h3>
+                        <div class="choose-content">
+                            <div class="quiz_creator">
+                                <a href="/login/quiz_creator">
+                                    <button class="choose-btn">Quiz Creator</button>
+                                </a>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="quiz_player">
+                                <a href="/login/quiz_player">
+                                    <button class="choose-btn">Quiz Player</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about">
+            <h2>Quiz_Pro</h2>
+            <h5>Choose your role to personalize your experience—whether you're here to 
+                take quizzes, create them, or challenge others, your adventure starts now!</h5>
+            <div class="members">
+                <div class="member">
+                    <h3>Quiz Creator</h3>
+                    <img src="{{ url_for('static' , filename = 'images/quiz_creator.png') }}" alt="Quiz Creator">
+                    <p> As a Quiz Creator, you bring learning and fun to life! Design engaging 
+                        quizzes, share your knowledge with others, and challenge minds worldwide. 
+                        Unleash your creativity and make every question count!</p>
+                </div>
+                <div class="member">
+                    <h3>Quiz Player</h3>
+                    <img src="{{ url_for('static', filename = 'images/quiz_player.png') }}" alt="Quiz Player">
+                    <p> Dive into a world of exciting quizzes tailored to challenge your mind and 
+                        sharpen your skills. Ready to put your knowledge to the test? Start playing now!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Module bock -->
+         <div class="modules"></div>
+         <!-- end of module block -->
+    </div>
+    <!-- End of main block -->
+     <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <h5>Contact: <small><a href="mailto:2k19cse045@kiot.ac.in">Click here to email</a></small></h5>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+</html>

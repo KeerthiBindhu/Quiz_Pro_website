@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | User Profile</title>
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/profile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/table.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- script -->
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+
+        <div class="profile profile-dropdown">
+            <button  onclick="triggerProfile()" class="dropdownBtn">
+                <i class="uil uil-user"></i>
+            </button>
+            <div class="profie-content" id="profileDropdown">
+                <div>
+                    <p>Email : {{ account['email'] }}</p>
+                </div>
+                <div class='separator'></div>
+                <div>
+                    <a href="/logout/{{ user }}/{{account['id']}}">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container">
+        <div class="content">
+            <!--h5>Hello Username</h5>
+            <p>{{ user }}</p>-->
+            <!-- conatiner to add quiz -->
+            <div class="quiz-container">
+                <div class="quiz-content">
+                    <div class="quiz_addition_info">
+                        <h4>Hello {{ account['user_name'] }},</h4>
+                        <h5>Welcome to your space, {{ account['user_name'] }}! Let’s make amazing things happen today.</h5>
+                        
+                    </div>
+                    <div class="quiz_addition">
+                        Add Quiz Name
+                        <form action="/add_quiz/{{ account['id'] }}" method="POST">
+                            <label for="qc_name">Quiz Category Name</label>
+                            <input type="text" name="qc_name" required placeholder="Enter your Quiz Category name">
+                            <button type="submit" class="sub-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+             </div>
+            <!-- table to display every quiz that were created by the user -->
+            <div class="quiz-container">
+                <div class="display-quizzes-content">
+                    <h3>Your quizzes</h3>
+                    <div class="quizzes-container">
+                        <div class="quizzes-content">
+                            <!-- here the conducted quiz info will be displayed -->
+                             
+                             <table class="styled-table">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Question Category ID</th>
+                                        <th>Question Category name</th>
+                                        <th>No. of players</th>
+                                    </tr>
+                                </thead>
+                                {% for data in qc_data %}
+                                <!--<p>{{ data }}</p>-->
+                                <tbody>
+                                    <tr>
+                                        <td>{{ loop.index }}</td>
+                                        <td>{{ data['QCId'] }}</td>
+                                        <td>{{ data['Q_category_name'] }}</td>
+                                        <td>{{ data['No_of_players'] }}</td>
+                                    </tr>
+                                    <!-- and so on... -->
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of main block -->
+     <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <h5>Contact: <small><a href="mailto:2k19cse045@kiot.ac.in">Click here to email</a></small></h5>
+        </div>
+    </div>
+    <!-- Footer -->
+
+    <script src="{{ url_for('static', filename = 'js/logout.js') }}"></script>
+    
+</body>
+</html>

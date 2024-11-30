@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz_Pro | Play</title>
+    <!-- icon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = '/images/favicon.ico') }}">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style/quiz.css') }}">
+    <!-- script -->
+    <script src="{{ url_for('static', filename = 'js/add_qs.js') }}"></script>
+</head>
+<body>
+    <!-- Navbar of the page -->
+    <nav>
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static' , filename = 'images/Qp_logo-1.png') }}" alt="quip_pro_logo">
+                <h3>Quiz_Pro</h3>
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar of the page -->
+
+    <!-- Main block -->
+    <div class="container">
+        <div class="quiz-content">
+            <form id="quizForm" action="/{{user}}/submit_quiz/{{ Qid }}" method="POST" autocomplete="off">
+                <div id="questionsContainer">
+                    <div class="question">
+                        {% for data in quiz %} 
+                        <h3>Question {{ loop.index }}</h3>
+                        <input class="ques_input" type="text" name="questions[{{ loop.index }}][text]" placeholder="{{ data['Question_text'] }}" readonly>
+                        <!-- <label>Options:</label> -->
+                        <input class="opt_input" type="text" name="questions[{{ loop.index }}][options][0]" placeholder="{{ data['Option1'] }}" readonly>
+                        <input class="opt_input" type="text" name="questions[{{ loop.index }}][options][1]" placeholder="{{ data['Option2'] }}" readonly>
+                        <input class="opt_input" type="text" name="questions[{{ loop.index }}][options][2]" placeholder="{{ data['Option3'] }}" readonly>
+                        <input class="opt_input" type="text" name="questions[{{ loop.index }}][options][3]" placeholder="{{ data['Option4'] }}" readonly>
+                        <input class='ans_input' type="number" name="questions[{{ loop.index }}][answer]" placeholder="Enter answer option as [1,2,3,4]" required>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!--<button class="add-qs-btn" type="button" onclick="nextQuestion()">Next Question</button>-->
+                <button class="sub-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- End of main block -->
+     <!-- Footer -->
+    <div class="footer-container">
+        <div class="footer-content">
+            <h5>Contact: <small><a href="mailto:2k19cse045@kiot.ac.in">Click here to email</a></small></h5>
+        </div>
+    </div>
+    <!-- Footer -->
+</body>
+</html>
