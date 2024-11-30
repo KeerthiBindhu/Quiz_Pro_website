@@ -252,8 +252,9 @@ def logout(user, user_id):
 def profile(user):
     
     if 'QCloggedin' in session and user == 'quiz_creator':
-        qc_data = Quiz_category_name.query.all()
         qcid = session['QCId']
+        qc_data = Quiz_category_name.query.filter_by(id = qcid).all()
+        
         account = Quiz_creator.query.filter_by(id = qcid).first()
         return render_template('user_profile.html', user = user, account = account, qc_data = qc_data)
     
