@@ -120,3 +120,19 @@
 .quizzes-content table{
     width: 100%;
 }
+
+/* media query css */
+@media screen and (max-width:1031px) {
+    .container{
+        margin-top: 7rem;
+    }
+    .quiz-content{
+        flex-direction: column;
+    }
+    .quiz_addition_info{
+        width: 87%;
+    }
+    .quiz_addition{
+        width: 97%;
+    }
+}

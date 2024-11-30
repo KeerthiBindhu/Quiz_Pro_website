@@ -174,11 +174,24 @@
     .container{
         margin-top: 7rem;
     }
-    .content{
+    .content,.members{
         flex-direction: column;
+        align-items: center;
     }
     .left-container,.right-container,
     .right-content form{
+        width: 97%;
+        /* border: 1px solid red; */
+    }
+    .member{
+        width: 85%;
+    }
+    .member img{
+        width: 55%;
+    }
+}
+@media screen and (max-width:631px) {
+    .choose{
         width: 97%;
         /* border: 1px solid red; */
     }

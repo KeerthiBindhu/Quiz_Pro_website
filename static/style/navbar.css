@@ -134,7 +134,7 @@ button{
 .footer-container{
     position: relative;
     bottom: 5px;
-    top: 0;
+    top: 10vh;
     background-color: var(--color-primary);
     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
     width: 100%;
